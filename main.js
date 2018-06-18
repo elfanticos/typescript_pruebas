@@ -11,4 +11,3 @@ function llamar_batman() {
     console.log('Mostrar la batiseñal');
 }
 var batman = llamar_batman();
-//# sourceMappingURL=main.js.map

@@ -5,4 +5,3 @@ var heroe1 = {
     poderes: ["Puede correr muy rápido", "Viaja por el tiempo"]
 };
 heroe1.poderes;
-//# sourceMappingURL=main.js.map
