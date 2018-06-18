@@ -26,3 +26,4 @@ prueba({
         return this.nombre;
     }
 });
+//# sourceMappingURL=app.js.map

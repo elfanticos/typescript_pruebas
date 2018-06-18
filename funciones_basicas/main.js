@@ -15,3 +15,4 @@ function nombreCompleto(nombre) {
     return nombre + " " + losDemasParametros.join(' ');
 }
 console.log(nombreCompleto('jhonatan', 'meza', 'inca'));
+//# sourceMappingURL=main.js.map
