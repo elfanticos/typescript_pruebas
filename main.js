@@ -1,4 +1,3 @@
-"use strict";
 // let arreglo:Array<number> = [1,2,3,4,5];
 // let villanos:Array<string> = ["Omega rojo", "dormammu"];
 // enum Volumen {

@@ -1,4 +1,3 @@
-"use strict";
 var heroe = "Flash";
 function imprime_heroe() {
     return heroe;

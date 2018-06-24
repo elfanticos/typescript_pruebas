@@ -9,3 +9,5 @@ let {nick, ironman, vision} = avengers1;
 console.log(nick);
 console.log(ironman);
 console.log(vision);
+
+let frutas:string[] = ['','']

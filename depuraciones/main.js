@@ -1,4 +1,3 @@
-"use strict";
 var heroe2 = 'Ricardo Tapia (Robin)';
 var edad = 30;
 var mensaje = imprimir(heroe2, edad);
