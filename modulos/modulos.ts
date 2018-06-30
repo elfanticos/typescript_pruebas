@@ -38,15 +38,52 @@
 // console.log(generica<Villano>(deadpool));
 
 /*************************************CLASES GENERICAS*******************/
-class Cuadrado {
-    base;
-    altura;
-    area():number {
-        return this.base * this.altura;
+// class Cuadrado {
+//     base;
+//     altura;
+//     area():number {
+//         return this.base * this.altura;
+//     }
+// }
+
+// let cuadrado = new Cuadrado();
+// cuadrado.base = 10;
+// cuadrado.altura = 10;
+// console.log(cuadrado.area());
+
+/*************************************DECORADORES*******************/
+
+// function consola(constructor:Function) {
+//     console.log(constructor);
+// }
+
+// @consola
+// class Villano {
+//     constructor(public nombre:string) {
+//     }
+// }
+
+/*************************************DECORADORES DE METODOS*******************/
+
+function editable(esEditable:boolean) {
+    return function(target:any, nombrePropiedad:string, descriptor:PropertyDescriptor) {
+        if(!esEditable)
+            console.warn('No me harán cambiar de opión');
+        
+        descriptor.writable = esEditable;
+    }
+}
+class Villano {
+    constructor(public nombre:string) {}
+    @editable(false)
+    plan() {
+        console.log('Es dominar el mundo');
     }
 }
 
-let cuadrado = new Cuadrado();
-cuadrado.base = 10;
-cuadrado.altura = 10;
-console.log(cuadrado.area());
+let  lex = new Villano('Lex Luthor');
+lex.plan = function() {
+    console.log('Es cortar flores');
+}
+
+lex.plan();

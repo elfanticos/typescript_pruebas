@@ -1,5 +1,11 @@
 // import * as textos from './textos';
 // import numeros from './numeros';
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 // console.log(numeros(10,15));
 // console.log(textos.obtenerError(1));
 // function regresar<T>(arg:T):T {
@@ -27,15 +33,48 @@
 // }
 // console.log(generica<Villano>(deadpool));
 /*************************************CLASES GENERICAS*******************/
-var Cuadrado = /** @class */ (function () {
-    function Cuadrado() {
-    }
-    Cuadrado.prototype.area = function () {
-        return this.base * this.altura;
+// class Cuadrado {
+//     base;
+//     altura;
+//     area():number {
+//         return this.base * this.altura;
+//     }
+// }
+// let cuadrado = new Cuadrado();
+// cuadrado.base = 10;
+// cuadrado.altura = 10;
+// console.log(cuadrado.area());
+/*************************************DECORADORES*******************/
+// function consola(constructor:Function) {
+//     console.log(constructor);
+// }
+// @consola
+// class Villano {
+//     constructor(public nombre:string) {
+//     }
+// }
+/*************************************DECORADORES DE METODOS*******************/
+function editable(esEditable) {
+    return function (target, nombrePropiedad, descriptor) {
+        if (!esEditable)
+            console.warn('No me harán cambiar de opión');
+        descriptor.writable = esEditable;
     };
-    return Cuadrado;
+}
+var Villano = /** @class */ (function () {
+    function Villano(nombre) {
+        this.nombre = nombre;
+    }
+    Villano.prototype.plan = function () {
+        console.log('Es dominar el mundo');
+    };
+    __decorate([
+        editable(false)
+    ], Villano.prototype, "plan", null);
+    return Villano;
 }());
-var cuadrado = new Cuadrado();
-cuadrado.base = 10;
-cuadrado.altura = 10;
-console.log(cuadrado.area());
+var lex = new Villano('Lex Luthor');
+lex.plan = function () {
+    console.log('Es cortar flores');
+};
+lex.plan();
